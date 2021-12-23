@@ -2,6 +2,9 @@ package com.develogical;
 
 import org.junit.Test;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -33,5 +36,10 @@ public class QueryProcessorTest {
     @Test
     public void knowsTheTeamName() throws Exception {
         assertThat(queryProcessor.process("what is your name"), containsString("Stu"));
+    }
+
+    @Test
+    public void canDoAddition() {
+        assertThat(queryProcessor.process("what is 13 plus 18"), containsString("31"));
     }
 }
