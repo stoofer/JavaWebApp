@@ -1,5 +1,6 @@
 package com.develogical;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class QueryProcessor {
@@ -8,7 +9,8 @@ public class QueryProcessor {
     Pattern addition = Pattern.compile("what is \\d+ plus \\d+");
 
     public String process(String query) {
-        String queryLower = query.toLowerCase().trim();
+        String[] queriesLower = query.toLowerCase().split(":");
+        String queryLower = queriesLower[queriesLower.length -1].trim();
         if (queryLower.contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
                     "English poet, playwright, and actor, widely regarded as the greatest " +
