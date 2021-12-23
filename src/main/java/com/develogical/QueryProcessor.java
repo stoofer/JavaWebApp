@@ -46,6 +46,11 @@ public class QueryProcessor {
             return Integer.toString(Integer.parseInt(numbers[0]) * Integer.parseInt(numbers[1]));
         }
 
+        if(queryLower.contains("what is ") && queryLower.contains("to the power of")) {
+            String[] numbers = queryLower.replace("what is ", "").replace("to the power of ", "").split(" ");
+            return Double.toString(Math.pow(Integer.parseInt(numbers[0]), Integer.parseInt(numbers[1])));
+        }
+
         if(queryLower.contains("which of the following numbers is the largest:")) {
             Stream<String> stringStream = Arrays.stream(queryLower.replace("which of the following numbers is the largest:", "").split(","));
             int result = stringStream.mapToInt(x -> Integer.parseInt(x.trim())).max().orElseGet(() -> 0);

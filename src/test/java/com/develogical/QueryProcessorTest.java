@@ -61,6 +61,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void mathToPowerOf() {
+        assertThat(queryProcessor.process("194b9ee0: what is 14 to the power of 8"), containsString("1.475789056E9"));
+    }
+
+    @Test
     public void comparisonOfNumber() {
         String query = "ce42fdf0: which of the following numbers is the largest: 561, 24, 856";
         assertThat(queryProcessor.process(query), containsString("856"));
