@@ -8,7 +8,7 @@ public class QueryProcessor {
     Pattern addition = Pattern.compile("what is \\d+ plus \\d+");
 
     public String process(String query) {
-        String queryLower = query.toLowerCase();
+        String queryLower = query.toLowerCase().trim();
         if (queryLower.contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
                     "English poet, playwright, and actor, widely regarded as the greatest " +

@@ -42,4 +42,8 @@ public class QueryProcessorTest {
     public void canDoAddition() {
         assertThat(queryProcessor.process("what is 13 plus 18"), containsString("31"));
     }
+    @Test
+    public void canDoAdditionWhitespace() {
+        assertThat(queryProcessor.process(" what is 13 plus 18 "), containsString("31"));
+    }
 }
