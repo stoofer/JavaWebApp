@@ -29,4 +29,9 @@ public class QueryProcessorTest {
     public void knowsAboutNealStephenson() throws Exception {
         assertThat(queryProcessor.process("Neal Stephenson"), containsString("Neal Town Stephenson (born October 31, 1959)"));
     }
+
+    @Test
+    public void knowsTheTeamName() throws Exception {
+        assertThat(queryProcessor.process("what is your name"), containsString("Stu"));
+    }
 }
