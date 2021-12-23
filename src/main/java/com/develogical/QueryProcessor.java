@@ -35,6 +35,10 @@ public class QueryProcessor {
             return "Sean Connery";
         }
 
+        if(queryLower.contains("fibonacci")) {
+            return fib(queryLower);
+        }
+
         if(queryLower.contains("what is ") && queryLower.contains("plus")) {
             String[] numbers = queryLower.replace("what is ", "").replace("plus ", "").split(" ");
             return Integer.toString(Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));
@@ -63,5 +67,17 @@ public class QueryProcessor {
 
         System.out.println("DONT KNOW: " + query);
         return "";
+    }
+
+    private String fib(String queryLower) {
+        int nth = Integer.parseInt(queryLower.replace("th number in the fibonacci sequence", "").replace("what is the ", ""));
+
+        return fibbonnaci(nth).toString();
+    }
+
+    public Integer fibbonnaci(int i) {
+        if(i <= 2) return 1;
+
+        return fibbonnaci(i -1) + fibbonnaci(i - 2);
     }
 }

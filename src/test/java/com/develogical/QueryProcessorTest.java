@@ -44,6 +44,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void doesFibbonacci() throws Exception {
+        assertThat(queryProcessor.process("what is the 4th number in the Fibonacci sequence"), containsString("3"));
+    }
+
+    @Test
     public void canDoAddition() {
         assertThat(queryProcessor.process("what is 13 plus 18"), containsString("31"));
     }
@@ -80,5 +85,14 @@ public class QueryProcessorTest {
     public void whatColourIsABanana() {
         String query = "ce42fdf0: what colour is a banana";
         assertThat(queryProcessor.process(query), containsString("yellow"));
+    }
+
+    @Test
+    public void fib() {
+        assertThat(queryProcessor.fibbonnaci(1), is(1) );
+        assertThat(queryProcessor.fibbonnaci(2), is(1) );
+        assertThat(queryProcessor.fibbonnaci(3), is(2) );
+        assertThat(queryProcessor.fibbonnaci(4), is(3) );
+        assertThat(queryProcessor.fibbonnaci(5), is(5) );
     }
 }
