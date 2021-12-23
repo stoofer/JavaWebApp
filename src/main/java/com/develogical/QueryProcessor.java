@@ -45,6 +45,8 @@ public class QueryProcessor {
             int result = stringStream.mapToInt(x -> Integer.parseInt(x.trim())).max().orElseGet(() -> 0);
             return Integer.toString(result);
         }
+
+        System.out.println("DONT KNOW: " + query);
         return "";
     }
 }
