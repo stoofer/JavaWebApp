@@ -27,6 +27,10 @@ public class QueryProcessor {
             return "Stu";
         }
 
+        if(queryLower.contains("what colour is a banana")) {
+            return "yellow";
+        }
+
         if(queryLower.contains("what is ") && queryLower.contains("plus")) {
             String[] numbers = queryLower.replace("what is ", "").replace("plus ", "").split(" ");
             return Integer.toString(Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));

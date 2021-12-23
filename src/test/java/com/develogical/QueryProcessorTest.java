@@ -61,4 +61,10 @@ public class QueryProcessorTest {
         String query = "ce42fdf0: which of the following numbers is the largest: 561, 24, 856";
         assertThat(queryProcessor.process(query), containsString("856"));
     }
+
+    @Test
+    public void whatColourIsABanana() {
+        String query = "ce42fdf0: what colour is a banana";
+        assertThat(queryProcessor.process(query), containsString("yellow"));
+    }
 }
