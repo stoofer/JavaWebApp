@@ -55,6 +55,10 @@ public class QueryProcessorTest {
     public void stripsQueryHeaderDoMultiplication() {
         assertThat(queryProcessor.process("ce42fdf0: what is 13 multiplied by 10 "), containsString("130"));
     }
+    @Test
+    public void stripsQueryHeaderDoSubtraction() {
+        assertThat(queryProcessor.process("ce42fdf0: what is 13 minus 10 "), containsString("3"));
+    }
 
     @Test
     public void comparisonOfNumber() {

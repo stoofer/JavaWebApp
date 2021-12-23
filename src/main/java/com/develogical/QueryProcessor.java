@@ -35,6 +35,12 @@ public class QueryProcessor {
             String[] numbers = queryLower.replace("what is ", "").replace("plus ", "").split(" ");
             return Integer.toString(Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));
         }
+
+        if(queryLower.contains("what is ") && queryLower.contains("minus")) {
+            String[] numbers = queryLower.replace("what is ", "").replace("minus ", "").split(" ");
+            return Integer.toString(Integer.parseInt(numbers[0]) - Integer.parseInt(numbers[1]));
+        }
+
         if(queryLower.contains("what is ") && queryLower.contains("multiplied by")) {
             String[] numbers = queryLower.replace("what is ", "").replace("multiplied by ", "").split(" ");
             return Integer.toString(Integer.parseInt(numbers[0]) * Integer.parseInt(numbers[1]));
