@@ -25,4 +25,8 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
     }
 
+    @Test
+    public void knowsAboutNealStephenson() throws Exception {
+        assertThat(queryProcessor.process("Neal Stephenson"), containsString("Neal Town Stephenson (born October 31, 1959)"));
+    }
 }
