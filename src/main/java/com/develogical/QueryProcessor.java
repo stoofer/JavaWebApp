@@ -31,6 +31,10 @@ public class QueryProcessor {
             return "yellow";
         }
 
+        if(queryLower.contains("who played james bond in the film dr no")) {
+            return "Sean Connery";
+        }
+
         if(queryLower.contains("what is ") && queryLower.contains("plus")) {
             String[] numbers = queryLower.replace("what is ", "").replace("plus ", "").split(" ");
             return Integer.toString(Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));

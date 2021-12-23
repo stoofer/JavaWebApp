@@ -39,6 +39,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void knowsMovieTrivia() throws Exception {
+        assertThat(queryProcessor.process("e93c4010: who played James Bond in the film Dr No"), containsString("Sean Connery"));
+    }
+
+    @Test
     public void canDoAddition() {
         assertThat(queryProcessor.process("what is 13 plus 18"), containsString("31"));
     }
