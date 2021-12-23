@@ -2,6 +2,7 @@ package com.develogical;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class QueryProcessor {
 
@@ -9,7 +10,7 @@ public class QueryProcessor {
     Pattern addition = Pattern.compile("what is \\d+ plus \\d+");
 
     public String process(String query) {
-        String[] queriesLower = query.toLowerCase().split(":");
+        String[] queriesLower = query.toLowerCase().split(":", 2);
         String queryLower = queriesLower[queriesLower.length -1].trim();
         if (queryLower.contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -33,6 +34,12 @@ public class QueryProcessor {
         if(queryLower.contains("what is ") && queryLower.contains("multiplied by")) {
             String[] numbers = queryLower.replace("what is ", "").replace("multiplied by ", "").split(" ");
             return Integer.toString(Integer.parseInt(numbers[0]) * Integer.parseInt(numbers[1]));
+        }
+
+        if(queryLower.contains("which of the following numbers is the largest:")) {
+            Stream<String> stringStream = Arrays.stream(queryLower.replace("which of the following numbers is the largest:", "").split(","));
+            int result = stringStream.mapToInt(x -> Integer.parseInt(x.trim())).max().orElseGet(() -> 0);
+            return Integer.toString(result);
         }
         return "";
     }
