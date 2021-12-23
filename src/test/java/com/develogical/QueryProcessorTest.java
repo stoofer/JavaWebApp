@@ -50,4 +50,9 @@ public class QueryProcessorTest {
     public void stripsQueryHeaderDoAdditionWhitespace() {
         assertThat(queryProcessor.process("ce42fdf0: what is 13 plus 18 "), containsString("31"));
     }
+    
+    @Test
+    public void stripsQueryHeaderDoMultiplication() {
+        assertThat(queryProcessor.process("ce42fdf0: what is 13 multiplied by 10 "), containsString("130"));
+    }
 }
